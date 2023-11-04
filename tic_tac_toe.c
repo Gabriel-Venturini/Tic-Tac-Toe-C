@@ -18,12 +18,12 @@ void printWinner(char);
 int main()
 {
     char winner = ' ';
-    char decision;
+    int decision;
 
-    while(decision != 'N')
+    do
     {
         winner = ' ';
-        decision = ' ';
+        decision = 1;
         resetBoard();
 
         while(winner == ' ' && checkFreeSpaces() != 0)
@@ -46,13 +46,11 @@ int main()
         printBoard();
         printWinner(winner);
 
-        printf("\nPlay again?(Y/N): ");
-        scanf("%c ", &decision);
-        decision = toupper(decision);
-    }
+        printf("\nPlay again?(1-Yes/2-No): ");
+        scanf("%d", &decision);
+    }while(decision == 1);
 
     printf("\nThank you for playing!\n");
-    printf("your decision is %c", decision);
     return 0;
 }
 
